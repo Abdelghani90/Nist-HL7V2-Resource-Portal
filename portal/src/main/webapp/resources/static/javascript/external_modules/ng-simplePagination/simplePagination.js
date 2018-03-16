@@ -13,7 +13,7 @@
 
       var paginator = {
         numPages: 1,
-        perPage: perPage,
+        perPage: 18,
         page: 0
       };
 

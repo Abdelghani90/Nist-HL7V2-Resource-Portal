@@ -1,10 +1,10 @@
-var app = angular.module('app', ['simplePagination', 'ngAnimate', 'ui.bootstrap','ui.router','ngRoute']);
+var app = angular.module('app', ['ngAnimate', 'ui.bootstrap','ui.router','ngRoute']);
 
 
 
 
 
-app.controller('toolController', ['$scope','$filter', 'Pagination','$http', '$uibModal','$log','$templateCache', function($scope,$filter, Pagination, $http,$uibModal,$log,$modalInstance,$templateCache) {
+app.controller('toolController', ['$scope','$filter','$http', '$uibModal','$log','$templateCache', function($scope,$filter, $http,$uibModal,$log,$modalInstance,$templateCache) {
 
    $scope.tools =[];
    $scope.FilteredTools=[];
@@ -37,8 +37,6 @@ app.controller('toolController', ['$scope','$filter', 'Pagination','$http', '$ui
 		   standardVersion : ""
    };
    
-    $scope.pagination = Pagination.getNew(20);
-    $scope.pagination.numPages = Math.ceil($scope.tools.length/$scope.pagination.perPage);
     $scope.tab = 1;
     $scope.math=Math;
     $scope.categorie='';
@@ -125,11 +123,8 @@ app.controller('toolController', ['$scope','$filter', 'Pagination','$http', '$ui
 
       return temp;
     };
-    function  update(newvalue, oldValue, scope){
-    	$scope.pagination.numPages = Math.ceil($scope.tools.length/$scope.pagination.perPage);
-    	console.log("adadssssssss"+oldValue.length);
-    }
-    $scope.$watch("tools", update, true);
+ 
+//    $scope.$watch("tools", update, true);
     
    
   
@@ -141,22 +136,10 @@ app.controller('toolController', ['$scope','$filter', 'Pagination','$http', '$ui
 
    
 
-$scope.limit= Math.ceil($scope.FilteredTools.length/$scope.pagination.perPage);
+$scope.limit= Math.ceil($scope.FilteredTools.length/18);
     $scope.setTab = function(activeTab) {
         $scope.tab = activeTab;
     };
-    $scope.Nexthide=function(){
-    	$scope.FilterTools($scope.tools)
-    	if($scope.FilteredTools.length===$scope.tools.length){ 
-    		
-    		return $scope.pagination.page + 1 >= $scope.pagination.numPages;
-    		}
-    	else {
-    		return $scope.limit===$scope.pagination.page;
-    	}
-    }
-
-$scope.pagination.numPages = Math.ceil($scope.tools.length / $scope.pagination.perPage);
     
 $scope.tab = 0;
 $scope.isActive= function(checkTab) {
@@ -189,7 +172,6 @@ $scope.setActive = function(activeTab) {
 		  return false;
   };	  	  
 
-  $scope.pagination.numPages = Math.ceil($scope.tools.length / $scope.pagination.perPage);
 
   $http.post("/portal/tools").success(function (response) {
 	  console.log(response);

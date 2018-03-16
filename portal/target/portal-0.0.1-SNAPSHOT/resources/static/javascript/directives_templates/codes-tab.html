@@ -20,7 +20,22 @@
 			</span> <input type="text" ng-model="sort.title" class="form-control"></input>
 		</div>
 		<div>
-			<uib-accordion> 
+			<uib-accordion>
+			
+			<uib-accordion-group>
+			<uib-accordion-heading>
+     			<i class="glyphicon" ng-class="{'glyphicon-triangle-bottom': artifact.open, 'glyphicon-triangle-right': !artifact.open}"> </i> HL7 v2 Validation Engine and Resources
+     		 </uib-accordion-heading>
+			<img
+				src="resources/static/images/github.png" alt="github">
+				<strong>github :</strong> <a href="https://github.com/usnistgov/v2-validation"> code repository</a>
+			</uib-accordion-group>
+			
+			
+			
+			
+			
+			 
 			<uib-accordion-group ng-repeat="tool in tools| filter: sort" is-open="artifact.open" ng-hide="tool.git===null">
 			<uib-accordion-heading>
      <i class="glyphicon" ng-class="{'glyphicon-triangle-bottom': artifact.open, 'glyphicon-triangle-right': !artifact.open}"> </i> {{tool.title}} 

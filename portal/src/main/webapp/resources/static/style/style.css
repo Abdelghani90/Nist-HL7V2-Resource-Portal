@@ -37,8 +37,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7fbfc', end
 	background-color: #f3c60d;
 }
 .fixheight{
-	height: 300px;
+	height: 350px;
 	border:2px solid;
+	overflow:auto !important;
 }
 .appContent{
 padding-left: 6rem;
@@ -69,13 +70,11 @@ padding-right: 6rem;
    
 }
 .boxbottom{
-	margin:inherit;
-
+	 margin:inherit;
 	 margin-bottom: 0px;
 	 margin-top: 0px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	height: inherit;
+	 padding-top: 0px;
+	 padding-bottom: 0px;
 	
 	 
 }
