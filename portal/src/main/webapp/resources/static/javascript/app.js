@@ -176,6 +176,7 @@ $scope.setActive = function(activeTab) {
   $http.post("/portal/tools").success(function (response) {
 	  console.log(response);
       $scope.tools = response;
+      
   });
   
 

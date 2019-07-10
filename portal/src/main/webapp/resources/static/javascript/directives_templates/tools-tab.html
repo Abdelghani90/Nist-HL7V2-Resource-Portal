@@ -45,7 +45,7 @@
  </div>
   
 	<div class="row toolsboxes">
-		<div class="box1 col-md-2" ng-repeat="tool in tools | filter : cat| filter: sort" ng-show="tool.activity==='Active'">
+		<div class="box1 col-md-2" ng-repeat="tool in tools | orderBy:'position' | filter : cat| filter: sort" ng-show="tool.activity==='Active'">
 			<a href={{tool.link}} target="_blank">	
 			<div class="boxhead" style="border:none; margin: none;">
 			<span style="font-size: 20px; color: white;">
@@ -69,7 +69,7 @@
 
 		</div>
 		
-			<div class="box1 archived col-md-2" ng-repeat="tool in tools | filter : cat| filter: sort" ng-show="tool.activity==='Archived'&& archived.archived==='true'" >
+			<div class="box1 archived col-md-2" ng-repeat="tool in tools| orderBy:'position' | filter : cat| filter: sort" ng-show="tool.activity==='Archived'&& archived.archived==='true'" >
 			<a href={{tool.link}} target="_blank">	
 			<div class="boxhead">
 			<span style="font-size: 20px; color: white;">
@@ -169,7 +169,7 @@ Safari, <i class="fa fa-internet-explorer"></i> IE 9 and 10</span>
 		<hr />
 <div ng-hide= "tool.spec==='none'">
 		<h4 >Specification</h4>
-		{{tool.spec}}
+		<div ng-bind-html="tool.spec |sanitize">
 		<hr /></div>
 		<h4>Last Update:</h4>
 		{{tool.last_update}}
@@ -181,10 +181,20 @@ Safari, <i class="fa fa-internet-explorer"></i> IE 9 and 10</span>
 		<h4>Status: {{tool.activity}}</h4>
 		<hr ng-hide="tool.profiles.length===0"></hr>
 		<h4 ng-hide="tool.profiles.length===0">Conformance profiles</h4>
-		<div class="conformace" ng-hide="tool.profiles.length===0">
+		<div class="conformace" ng-hide="tool.profiles.length===0 || !tool.multiple">
 		<ul>
 			<li class="col-md-4" ng-repeat="profil in tool.profiles">{{profil}}</li>
 		</ul>
+		</div>
+		<div class="conformace" ng-show="tool.multiple">
+			
+		<div ng-repeat= "group in tool.profileGroup">
+		<strong>{{group.groupname}}</strong>
+		<ul>
+			<li  ng-repeat="profil in group.cps">{{profil}}</li>
+		</ul>
+		</div>	
+	
 		</div>
 		
 		<div class="col-md-12">

@@ -25,7 +25,24 @@ public class Tool {
 	 private String html_title;
 	 private String git;
 	 private String dev;
-	 public String getDev() {
+	 private int position;
+	 
+	 List<ProfileGroup> profileGroup;
+	 boolean multiple;
+	 
+	 public List<ProfileGroup> getProfileGroup() {
+		return profileGroup;
+	}
+	public void setProfileGroup(List<ProfileGroup> profileGroup) {
+		this.profileGroup = profileGroup;
+	}
+	public boolean isMultiple() {
+		return multiple;
+	}
+	public void setMultiple(boolean multiple) {
+		this.multiple = multiple;
+	}
+	public String getDev() {
 		return dev;
 	}
 	public void setDev(String dev) {
@@ -144,6 +161,12 @@ public class Tool {
 		this.last_update = last_update;
 		this.activity = activity;
 		this.categorie = categorie;
+	}
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
 	}	 
 
 }

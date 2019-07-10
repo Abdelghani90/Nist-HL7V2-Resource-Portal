@@ -43,7 +43,7 @@
  </div>
   
 	<div class="row toolsboxes">
-		<div class="box1 col-md-2" ng-repeat="tool in tools | filter : cat| filter: sort" ng-if="tool.dev&&tool.dev!=='none'">
+		<div class="box1 col-md-2" ng-repeat="tool in tools | orderBy:'position' | filter : cat| filter: sort" ng-if="tool.dev&&tool.dev!=='none'">
 			<a ng-href={{tool.dev.trim()}} target="_blank">	
 			<div class="boxhead" style="border:none; margin: none;">
 			<span style="font-size: 20px; color: white;">

@@ -5,9 +5,11 @@
   <groupId>gov.nist.resources</groupId>
   <artifactId>portal</artifactId>
   <packaging>war</packaging>
+  
   <version>0.0.1-SNAPSHOT</version>
 
   <name>portal</name>
+  
   <url>http://maven.apache.org</url>
 
   <dependencies>
@@ -91,6 +93,7 @@
   </dependencies>
 
   <build>
+    <finalName>portal</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
