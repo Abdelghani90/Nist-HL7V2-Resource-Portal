@@ -10,7 +10,7 @@ public class Presentation {
 	private String title;
 	private String place;
 	private double order;
-
+	private boolean external =false;
 	public double getOrder() {
 		return order;
 	}
@@ -59,6 +59,12 @@ public class Presentation {
 	}
 	public Presentation() {
 	
+	}
+	public boolean getExternal() {
+		return external;
+	}
+	public void setExternal(boolean external) {
+		this.external = external;
 	}
 
 	

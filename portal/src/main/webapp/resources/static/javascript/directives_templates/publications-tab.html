@@ -72,7 +72,9 @@
                     <tbody>
                         <tr ng-repeat="presentation in presentations |orderBy:'-order'">
                            <td >
-                     <a class="link" href="resources/static/slides/{{presentation.link}}">      {{presentation.title}} </a>
+                     <a ng-if="!presentation.external" class="link" href="resources/static/slides/{{presentation.link}}">      {{presentation.title}} </a>
+                     <a ng-if="presentation.external" class="link" href="{{presentation.link}}"> {{presentation.title}} </a>
+                     
                             </td>
                             <td >
                              {{presentation.publication_date}}
@@ -107,7 +109,7 @@
             <td class="box col-md-3">
                 <div>
                     <h5>Application Information</h5>
-                    <span class="ng-binding">Date: 09/06/2017 </span>
+                    <span class="ng-binding">Date: 11/14/2019 </span>
                     <br/><span class="ng-binding">Application Version: 1.0</span>
                
                 </div>
@@ -139,6 +141,4 @@ Safari, <i class="fa fa-internet-explorer"></i> IE 9 and 10</span>
 
 </table>
  </div>
-        
-  
   </div>

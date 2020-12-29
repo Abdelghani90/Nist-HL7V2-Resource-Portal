@@ -25,6 +25,8 @@ public class Tool {
 	 private String html_title;
 	 private String git;
 	 private String dev;
+	 private int position;
+	 
 	 public String getDev() {
 		return dev;
 	}
@@ -144,6 +146,12 @@ public class Tool {
 		this.last_update = last_update;
 		this.activity = activity;
 		this.categorie = categorie;
+	}
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
 	}	 
 
 }

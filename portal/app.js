@@ -125,7 +125,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/tools',
             templateUrl: 'resources/static/javascript/directives_templates/tools-tab.html'
         }).
-            
+        .state('qDAR', {
+            url: '/qDAR',
+            templateUrl: 'resources/static/javascript/directives_templates/qDAR-tab.html'
+        }).   
         state('toolsdevs, {
             url: '/tools/dev',
             templateUrl: 'resources/static/javascript/directives_templates/tools-tab.html'

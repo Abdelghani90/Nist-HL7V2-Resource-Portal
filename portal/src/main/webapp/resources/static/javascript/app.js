@@ -123,19 +123,6 @@ app.controller('toolController', ['$scope','$filter','$http', '$uibModal','$log'
 
       return temp;
     };
- 
-//    $scope.$watch("tools", update, true);
-    
-   
-  
-
-//   $scope.FilteredTools= $scope.arrayFilter($scope.arrayFilter($scope.tools, $scope.myFilter),$scope.ActivityFilter);
-//   $scope.isSet = function(checkTab) {
-//       return $scope.tab === checkTab;
-//   };
-
-   
-
 $scope.limit= Math.ceil($scope.FilteredTools.length/18);
     $scope.setTab = function(activeTab) {
         $scope.tab = activeTab;
@@ -246,19 +233,9 @@ $http.post("/portal/links").success(function (response) {
       });
       $scope.modalInstance = modalInstance;
   };
-  
-  
-  
-  
-  
-  
-
 	  $scope.cancel = function () {
 		  $scope.modalInstance.dismiss('cancel');
 	  };
-
-
-
 }]);
 
 app.directive('toolsTab', function() {
@@ -287,6 +264,12 @@ app.directive('aboutTab', function() {
         templateUrl: 'resources/static/javascript/directives_templates/about-tab.html'
     };
 });
+app.directive('qDARTab', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'resources/static/javascript/directives_templates/qDAR-tab.html'
+    };
+});
 
 app.filter("sanitize", ['$sce', function($sce) {
     return function(htmlCode) {
@@ -302,9 +285,6 @@ app.filter("categoryFilter", [function() {
 
 
 app.config(function($stateProvider, $urlRouterProvider,$compileProvider) {
-    
-	
-    
     $stateProvider
         
         // HOME STATES AND NESTED VIEWS ========================================
@@ -318,11 +298,6 @@ app.config(function($stateProvider, $urlRouterProvider,$compileProvider) {
             url: '/tools',
             templateUrl: 'resources/static/javascript/directives_templates/tools-tab.html'
         })        
-        .state('toolsdev', {
-            url: '/tools/dev',
-            templateUrl: 'resources/static/javascript/directives_templates/tools-tabDev.html'
-        })
-        
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         
     .state('publications', {
@@ -350,6 +325,11 @@ app.config(function($stateProvider, $urlRouterProvider,$compileProvider) {
 	   	 url: '/links',
 	        templateUrl: 'resources/static/javascript/directives_templates/links.html'
 	   }).
+	   state('qDAR', {
+		 	  
+		   	 url: '/qDAR',
+		        templateUrl: 'resources/static/javascript/directives_templates/qDAR-tab.html'
+		   }).
    state('admin', {
  	  
 	   	 url: '/admin',
@@ -388,7 +368,6 @@ app.controller('login',
 
 		  authenticate();
 		  $scope.credentials = {};
-		  $scope.test ="sdsdsds";
 		  $scope.login = function() {
 		      authenticate($scope.credentials, function() {
 		        if ($rootScope.authenticated) {
