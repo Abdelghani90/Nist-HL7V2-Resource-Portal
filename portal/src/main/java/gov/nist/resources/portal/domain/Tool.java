@@ -26,6 +26,7 @@ public class Tool {
 	 private String git;
 	 private String dev;
 	 private int position;
+	 private List<String> specs;
 	 
 	 public String getDev() {
 		return dev;
@@ -152,6 +153,12 @@ public class Tool {
 	}
 	public void setPosition(int position) {
 		this.position = position;
+	}
+	public List<String> getSpecs() {
+		return specs;
+	}
+	public void setSpecs(List<String> specs) {
+		this.specs = specs;
 	}	 
 
 }

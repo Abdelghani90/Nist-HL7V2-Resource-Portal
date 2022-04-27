@@ -38,7 +38,7 @@
 
 			<div class="row toolsboxes">
 				<div class="box1 col-md-2"
-					ng-repeat="tool in tools | filter : cat | orderBy: 'position'"
+					ng-repeat="tool in tools | filter : cat |filter : sort|  orderBy: 'position'"
 					ng-show="tool.activity==='Active'">
 					
 					<a href={{tool.link}} target="_blank">
@@ -86,11 +86,6 @@
 					</div>
 
 				</div>
-
-
-
-
-
 			</div>
 
 		</div>
@@ -102,96 +97,51 @@
 	<!-- 	<div  style="display : inline;"> -->
 
 	<hr />
-	<div id="footer" class="ng-scope" style="border-top: 1px solid;">
-
-		<table>
-			<tbody>
-				<tr>
-					<td class="box col-md-1"><a href="http://www.nist.gov"
-						target="_blank"><img class="footerImage"
-							src="resources/static/images/nist_logo.gif" alt="The NIST Logo"
-							title="The NIST Logo"></a></td>
-
-					<td class="box col-md-3">
-						<div>
-							<h5>Application Information</h5>
-							<span class="ng-binding">Date: 11/14/2019 </span> <br /> <span
-								class="ng-binding">Application Version: 1.0</span>
-
-						</div>
-					</td>
-
-					<td class="box col-md-3">
-						<div>
-							<h5>Supported Browsers</h5>
-							<span><i class="fa fa-firefox"></i> Firefox, <i
-								class="fa fa-chrome"></i> Chrome, <i class="fa fa-safari"></i>
-								Safari, <i class="fa fa-internet-explorer"></i> IE 9 and 10</span>
-						</div>
-					</td>
-
-					<td class="box col-md-4">
-						<div>
-							<h5>External Links</h5>
-							<a class="footer-link"
-								href="http://www.nist.gov/public_affairs/disclaimer.cfm"
-								target="_blank" title="View Disclaimer">Disclaimer</a> | <a
-								class="footer-link"
-								href="http://www.nist.gov/public_affairs/privacy.cfm#privpolicy"
-								target="_blank" title="View Privacy Policy">Privacy/Policy</a>|
-							<a class="footer-link" ng-href="mailto:robert.snelick@nist.gov"
-								title="Email Website Administrator @: robert.snelick@nist.gov"
-								href="mailto:robert.snelick@nist.gov">Website Administrator</a>
-						</div>
-					</td>
-
-					<td class="box col-md-2"><a href="http://www.itl.nist.gov"
-						target="_blank"><img class="footerImage"
-							src="resources/static/images/itl-logo.jpg" alt="ITL Logo"
-							title="ITL Logo"></a></td>
-
-				</tr>
-			</tbody>
-
-		</table>
-	</div>
 
 </div>
 
 
 <script type="text/ng-template" id="myModalContent.html">
-
-<div class="panel panel-info ">
-	<div class="panel-heading">
-		<h2 ng-bind-html="tool.title |sanitize"></h2>
-	</div>
-	<div class="panel-body" style=" overflow-y: scroll;">
-		<p ng-bind-html="tool.description |sanitize"></p>
-		<hr />
-<div ng-hide= "tool.spec==='none'">
-		<h4 >Specification</h4>
-		{{tool.spec}}
-		<hr  ng-hide="tool.categorie==='none'"/>
-		<h4 ng-hide="tool.categorie==='none'">Use: {{tool.categorie}}</h4>
-		<hr />
-		<h4>Status: {{tool.activity}}</h4>
-		<hr ng-hide="tool.profiles.length===0"></hr>
-		<h4 ng-hide="tool.profiles.length===0">Conformance profiles</h4>
-		<div class="conformace" ng-hide="tool.profiles.length===0">
-		<ul>
-			<li class="col-md-4" ng-repeat="profil in tool.profiles">{{profil}}</li>
-		</ul>
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h2 ng-bind-html="tool.title |sanitize"></h2>
 		</div>
-		
-		<div class="col-md-12">
-		<hr />
-		See more: <a href={{tool.link}} target="_blank"> <span
-			style="font-size: 18px;">{{tool.link}} </span></a>
-	</div>
-		<div class="modal-footer col-md-12">
-			<button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+		<div class="panel-body" style="overflow-y: scroll;">
+			<p ng-bind-html="tool.description | sanitize"></p>
+			<div ng-show ="tool.specs">
+				<h4>Specifications</h4>
+				<ul>
+					<li  ng-repeat="spec in tool.specs">{{spec}}</li>
+				</ul>
+			</div>
+	
+			<div ng-if="tool.categorie && tool.categorie!=='none'">
+				<hr/>
+				<h4>Use:</h4> {{tool.categorie}}
+			</div>
+			<div ng-if="tool.activity">
+				<hr/>
+				<h4>Status:</h4> {{tool.activity}}
+			</div>
+			<div ng-if="tool.profiles && tool.profiles.length">
+				<hr/>
+				<h4>Conformance profiles: </h4>
+				<div class="conformace" ng-show="tool.profiles">
+					<ul>
+						<li class="col-md-4" ng-repeat="profil in tool.profiles">{{profil}}</li>
+					</ul>
+				</div>
+			</div>
+	
+			<div class="col-md-12">
+				<hr/>
+				See more: <a href={{tool.link}} target="_blank"> <span
+					style="font-size: 18px;"> {{tool.link}} </span></a>
+			</div>
+			<div class="modal-footer col-md-12">
+				<button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+			</div>
 		</div>
+	
 	</div>
-
-</div>
 </script>

@@ -3,19 +3,19 @@
 
 <head>
 <title>portal</title>
-
-
-
+<!-- <meta http-equiv="Cache-Control" content="private, no-store" /> -->
 <link rel="stylesheet"	href="resources/static/javascript/external_modules/bootstrap/dist/css/bootstrap.css">
 
-<link rel="stylesheet" href="resources/static/style/style.css">
-
+<link rel="stylesheet" href="https://pages.nist.gov/nist-header-footer/css/nist-combined.css">
+<script src="https://pages.nist.gov/nist-header-footer/js/jquery-1.9.0.min.js" type="text/javascript" defer="defer"></script>
+<script src="https://pages.nist.gov/nist-header-footer/js/nist-header-footer.js" type="text/javascript" defer="defer"></script>
 <script src="resources/static/javascript/external_modules/angular/angular.js"></script>
  <script src="resources/static/javascript/external_modules/ng-simplePagination/simplePagination.js"></script> 
 <script src="resources/static/javascript/external_modules/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="resources/static/javascript/external_modules/angular-animate/angular-animate.js"></script>
 <script src="resources/static/javascript/external_modules/angular-route/angular-route.js"></script>
 <script src="resources/static/javascript/external_modules/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<link rel="stylesheet" href="resources/static/style/style.css">
 
 <script src="resources/static/javascript/app.js"></script> 
 <script src="resources/static/javascript/login.js"></script> 
@@ -28,7 +28,7 @@
 		<div class="brand" id="appheader">
 			<a style="display: inline-block; text-shadow: none" href="#">
 				<div id="apptitle">
-					NIST <span style="color: white" class="ng-binding">HL7 V2 Resource Portal
+					 <span style="color: white" class="ng-binding">HL7 V2 Resource Portal
 						</span><span style="color: red; font-size: 12px" class="ng-binding">
 						1.0</span>
 				</div> <!-- ngIf: appInfo.domain != '' && appInfo.domain  != null -->
@@ -65,7 +65,7 @@
 								
 					<li ng-class="{ active :isActive(6)}" ng-click="setActive(6)"><a
 						ui-sref="about "><span style="color: black;">
-								About</span></a></li>
+								about</span></a></li>
 					</li>
 										
 					
