@@ -65,7 +65,7 @@
 								
 					<li ng-class="{ active :isActive(6)}" ng-click="setActive(6)"><a
 						ui-sref="about "><span style="color: black;">
-								about</span></a></li>
+								About</span></a></li>
 					</li>
 										
 					

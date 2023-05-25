@@ -15,6 +15,8 @@ public class SchemaDomain {
 	}
 	@Id
 	private Object id;
+	
+	private String link;
 	public Object getId() {
 		return id;
 	}
@@ -32,6 +34,12 @@ public class SchemaDomain {
 	}
 	public void setSchemas(List<Schema> schemas) {
 		schemas = schemas;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
 	}
 	private String title;
 	private List<Schema> schemas;
