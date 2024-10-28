@@ -15,6 +15,7 @@
 <script src="resources/static/javascript/external_modules/angular-animate/angular-animate.js"></script>
 <script src="resources/static/javascript/external_modules/angular-route/angular-route.js"></script>
 <script src="resources/static/javascript/external_modules/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOC&subagency=NIST&pua=UA-xxxxxxxx-x&yt=true&exts=ppsx,pps,f90,sch,rtf,wrl,txz,m1v,xlsm,msi,xsd,f,tif,eps,mpg,xml,pl,xlt,c"></script>
 <link rel="stylesheet" href="resources/static/style/style.css">
 
 <script src="resources/static/javascript/app.js"></script> 
