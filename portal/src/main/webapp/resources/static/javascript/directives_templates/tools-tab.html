@@ -15,7 +15,7 @@
 				<select class="Select col-md-6 " ng-model="cat.categorie"
 					ng-click="FilterTools(tools)">
 					<option value=''>All Tools</option>
-					<option value='ONC Certification Related Tools'>ONC
+					<option value='ONC Certification Related Tools'>ONC/ASTP
 						Certification Related Tools</option>
 					<option value='IHE Related Tools'>IHE Related Tools</option>
 					<option value='Laboratory Reporting Related Tools'>Laboratory
@@ -40,7 +40,6 @@
 				<div class="box1 col-md-2"
 					ng-repeat="tool in tools | filter : cat |filter : sort|  orderBy: 'position'"
 					ng-show="tool.activity==='Active' && (!archived.archived || archived.archived !=='true')">
-					
 					<a href={{tool.link}} target="_blank">
 						<div class="boxhead" style="border: none; margin: none;">
 						<span style="font-size: 18px; color: white;">
@@ -52,17 +51,15 @@
 						<a href={{tool.link}} target="_blank">
 							<div class="col-md-6 col-xs-offset-4"></div>
 						</a> <a href="">
-							<div class="col-md-1"" >
+							<div class="col-md-1" >
 
 								<span class="glyphicon glyphicon-info-sign info"
 									ng-click="open(tool)" />
 							</div>
 						</a>
 					</div>
-
 				</div>
 				
-
 				<div class="box1 archived col-md-2"
 					ng-repeat="tool in tools | filter : cat| filter: sort"
 					ng-show="tool.activity==='Archived' && archived.archived==='true'">
@@ -81,23 +78,17 @@
 							<div class="col-md-1">
 
 								<span class="glyphicon glyphicon-info-sign info"
-									ng-click="open(tool)" />
+									ng-click="open(tool)"/>
 							</div>
 						</a>
 					</div>
-
 				</div>
 			</div>
 
 		</div>
 	</div>
-
-
 	<a></a>
-	<!--   <div > -->
-	<!-- 	<div  style="display : inline;"> -->
-
-	<hr />
+	<hr/>
 
 </div>
 
